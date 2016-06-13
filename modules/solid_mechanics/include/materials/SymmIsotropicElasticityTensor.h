@@ -92,7 +92,7 @@ public:
 
   virtual void multiply( const SymmTensor & x, SymmTensor & b ) const;
 
-  virtual void adjustForCracking( const RealVectorValue & crack_flags );
+  virtual void adjustForCracking( const RealVectorValue & crack_flags, const bool hasFullShearRetention=true);
 
 protected:
 

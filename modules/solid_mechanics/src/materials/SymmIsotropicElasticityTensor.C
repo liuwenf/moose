@@ -231,10 +231,22 @@ SymmIsotropicElasticityTensor::multiply( const SymmTensor & x, SymmTensor & b ) 
   b.xy() = 2*_val[15]*xy;
   b.yz() = 2*_val[18]*yz;
   b.zx() = 2*_val[20]*zx;
+
+  b.xx() += 2*(_val[3]*xy + _val[4]*yz +_val[5]*zx);
+  b.yy() += 2*(_val[8]*xy + _val[9]*yz + _val[10]*zx);
+  b.zz() += 2*(_val[12]*xy +_val[13]*yz + _val[14]*zx);
+
+  b.xy() += _val[3]*xx + _val[8]*yy +_val[12]*zz;
+  b.yz() += _val[4]*xx + _val[9]*yy + _val[13]*zz;
+  b.zx() += _val[5]*xx +_val[10]*yy + _val[14]*zz;
+
+  b.yz() +=  2*_val[16] * xy;
+  b.zx() += 2*_val[17] * xy + 2*_val[19] * yz;
+
 }
 
 void
-SymmIsotropicElasticityTensor::adjustForCracking( const RealVectorValue & crack_flags )
+SymmIsotropicElasticityTensor::adjustForCracking( const RealVectorValue & crack_flags, bool hasFullShearRetention )
 {
   const RealVectorValue & c( crack_flags );
   const Real c0(c(0));
@@ -272,12 +284,15 @@ SymmIsotropicElasticityTensor::adjustForCracking( const RealVectorValue & crack_
   _val[13] *= c12;
   _val[14] *= c02;
 
-  _val[15] *= c01;
-  _val[16] *= c012;
-  _val[17] *= c012;
+  if( ! hasFullShearRetention )
+    {
+      _val[15] *= c01;
+      _val[16] *= c012;
+      _val[17] *= c012;
 
-  _val[18] *= c12;
-  _val[19] *= c012;
+      _val[18] *= c12;
+      _val[19] *= c012;
 
-  _val[20] *= c02;
+      _val[20] *= c02;
+    }
 }
