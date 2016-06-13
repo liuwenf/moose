@@ -151,7 +151,7 @@ public:
   void rotateFromGlobalToLocal( const ColumnMajorMatrix & R );
   void rotateFromLocalToGlobal( const ColumnMajorMatrix & R );
 
-  virtual void adjustForCracking( const RealVectorValue & crack_flags );
+  virtual void adjustForCracking( const RealVectorValue & crack_flags, const bool hasFullShearRetention);
 
   virtual SymmElasticityTensor calculateDerivative(unsigned int qp,unsigned int i);
 
