@@ -55,10 +55,10 @@ validParams<Transient>()
       "implicit-euler explicit-euler crank-nicolson bdf2 rk-2 dirk explicit-tvd-rk-2");
 
   params.addParam<Real>("start_time", 0.0, "The start time of the simulation");
-  params.addParam<Real>("end_time", 1.0e30, "The end time of the simulation");
+  params.addParam<Real>("end_time", 1.0e8, "The end time of the simulation");
   params.addParam<Real>("dt", 1., "The timestep size between solves");
-  params.addParam<Real>("dtmin", 2.0e-14, "The minimum timestep size in an adaptive run");
-  params.addParam<Real>("dtmax", 1.0e30, "The maximum timestep size in an adaptive run");
+  params.addParam<Real>("dtmin", 1.0e-2, "The minimum timestep size in an adaptive run");
+  params.addParam<Real>("dtmax", 1.0e8,  "The maximum timestep size in an adaptive run");
   params.addParam<bool>(
       "reset_dt", false, "Use when restarting a calculation to force a change in dt.");
   params.addParam<unsigned int>("num_steps",

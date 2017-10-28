@@ -53,15 +53,15 @@ validParams<Executioner>()
 #ifdef LIBMESH_HAVE_SLEPC
   params += Moose::SlepcSupport::getSlepcValidParams();
 #endif
-  params.addParam<Real>("l_tol", 1.0e-5, "Linear Tolerance");
+  params.addParam<Real>("l_tol", 1.0e-2, "Linear Tolerance");
   params.addParam<Real>("l_abs_step_tol", -1, "Linear Absolute Step Tolerance");
-  params.addParam<unsigned int>("l_max_its", 10000, "Max Linear Iterations");
-  params.addParam<unsigned int>("nl_max_its", 50, "Max Nonlinear Iterations");
-  params.addParam<unsigned int>("nl_max_funcs", 10000, "Max Nonlinear solver function evaluations");
+  params.addParam<unsigned int>("l_max_its",  50, "Max Linear Iterations");
+  params.addParam<unsigned int>("nl_max_its", 30, "Max Nonlinear Iterations");
+  params.addParam<unsigned int>("nl_max_funcs", 1000, "Max Nonlinear solver function evaluations");
   params.addParam<Real>("nl_abs_tol", 1.0e-50, "Nonlinear Absolute Tolerance");
-  params.addParam<Real>("nl_rel_tol", 1.0e-8, "Nonlinear Relative Tolerance");
-  params.addParam<Real>("nl_abs_step_tol", 1.0e-50, "Nonlinear Absolute step Tolerance");
-  params.addParam<Real>("nl_rel_step_tol", 1.0e-50, "Nonlinear Relative step Tolerance");
+  params.addParam<Real>("nl_rel_tol", 1.0e-4, "Nonlinear Relative Tolerance");
+  params.addParam<Real>("nl_abs_step_tol", 1.0e-12, "Nonlinear Absolute step Tolerance");
+  params.addParam<Real>("nl_rel_step_tol", 1.0e-12, "Nonlinear Relative step Tolerance");
   params.addParam<bool>("no_fe_reinit", false, "Specifies whether or not to reinitialize FEs");
   params.addParam<bool>("compute_initial_residual_before_preset_bcs",
                         false,

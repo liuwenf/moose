@@ -34,7 +34,7 @@
 #include "PlasticHeatEnergy.h"
 #include "PhaseFieldFractureMechanicsOffDiag.h"
 
-#include "LinearElasticTruss.h"
+//#include "LinearElasticTruss.h"
 #include "FiniteStrainPlasticMaterial.h"
 #include "FiniteStrainCrystalPlasticity.h"
 #include "FiniteStrainCPSlipRateRes.h"
@@ -84,7 +84,7 @@
 #include "ComputeVolumetricEigenstrain.h"
 #include "ComputeConcentrationDependentElasticityTensor.h"
 #include "FiniteStrainHyperElasticViscoPlastic.h"
-#include "LinearIsoElasticPFDamage.h"
+//#include "LinearIsoElasticPFDamage.h"
 #include "HyperElasticPhaseFieldIsoDamage.h"
 #include "ComputeVolumetricDeformGrad.h"
 #include "ComputeDeformGradBasedStress.h"
@@ -239,7 +239,7 @@ TensorMechanicsApp::registerObjects(Factory & factory)
   registerKernel(PlasticHeatEnergy);
   registerKernel(PhaseFieldFractureMechanicsOffDiag);
 
-  registerMaterial(LinearElasticTruss);
+  //  registerMaterial(LinearElasticTruss);
   registerMaterial(FiniteStrainPlasticMaterial);
   registerMaterial(FiniteStrainCrystalPlasticity);
   registerMaterial(FiniteStrainCPSlipRateRes);
@@ -289,7 +289,7 @@ TensorMechanicsApp::registerObjects(Factory & factory)
   registerMaterial(ComputeVolumetricEigenstrain);
   registerMaterial(ComputeConcentrationDependentElasticityTensor);
   registerMaterial(FiniteStrainHyperElasticViscoPlastic);
-  registerMaterial(LinearIsoElasticPFDamage);
+  //  registerMaterial(LinearIsoElasticPFDamage);
   registerMaterial(HyperElasticPhaseFieldIsoDamage);
   registerMaterial(ComputeVolumetricDeformGrad);
   registerMaterial(ComputeDeformGradBasedStress);
